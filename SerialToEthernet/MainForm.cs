@@ -41,7 +41,7 @@ namespace System.Windows.Forms
 
         private void StartStop()
         {
-            if (controller?.Running == true) Stop(); 
+            if (controller?.Running == true) Stop();
             else Start();
         }
 
@@ -60,15 +60,15 @@ namespace System.Windows.Forms
             {
                 Portname = PortsSelector.Items[PortsSelector.SelectedIndex].ToString(),
             };
-            controller = new SerialToEthernetController(Log,serialPortConfig, (ushort)TcpPortSelector.Value);
-
+            controller = new SerialToEthernetController(Log, serialPortConfig, (ushort)TcpPortSelector.Value);
+            controller.SerialStatusChanged += OnControllerSerialStatusChanged;
+            controller.TcpStatusChanged += OnControllerTcpStatusChanged;
             splitContainer1.Enabled = false;
             Task.Run(() =>
             {
                 try
                 {
                     controller.Start();
-                    
                 }
                 catch (Exception ex)
                 {
@@ -94,7 +94,6 @@ namespace System.Windows.Forms
         });
 
 
-
         private void Stop() => InvokeIfNecessary(() =>
         {
             if (controller == null) return;
@@ -112,7 +111,25 @@ namespace System.Windows.Forms
             StartStopButton.Text = "Start";
             SerialPanel.Enabled = TcpPanel.Enabled = true;
             Log("stop finished");
+            OnControllerSerialStatusChanged();
+            OnControllerTcpStatusChanged();
         });
         #endregion
+
+
+        private void OnControllerSerialStatusChanged() => this.InvokeIfNecessary(() =>
+        {
+            if (controller?.SerialConnected == true)
+                SerialStatusLabel.BackColor = Color.Lime;
+            else
+                SerialStatusLabel.BackColor = Color.Salmon;
+        });
+        private void OnControllerTcpStatusChanged() => this.InvokeIfNecessary(() =>
+        {
+            if (controller?.TcpListening == true)
+                TcpStatusLabel.BackColor = Color.Lime;
+            else
+                TcpStatusLabel.BackColor = Color.Salmon;
+        });
     }
 }

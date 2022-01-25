@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+[assembly: Guid("8ced053a-959f-424a-8cc4-3fad0669c130")]
+[assembly: AssemblyTitle("SerialToEthernet"), AssemblyProduct("SerialToEthernet")]
+[assembly: AssemblyDescription(""), AssemblyCopyright("Copyright ©  2022"), AssemblyConfiguration("")]
+[assembly: AssemblyCompany(""), AssemblyTrademark(""), AssemblyCulture(""), ComVisible(false)]
+[assembly: AssemblyVersion(SerialToEthernetController.Version), AssemblyFileVersion(SerialToEthernetController.Version)]
 
 namespace SerialToEthernet
 {
