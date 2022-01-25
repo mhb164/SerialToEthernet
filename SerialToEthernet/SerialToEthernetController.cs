@@ -73,7 +73,7 @@ public class TcpClientAid
 }
 public class SerialToEthernetController
 {
-    public const string Version = "1.1";
+    public const string Version = "1.2";
     public SerialToEthernetController(Action<string> logAction, SerialPortConfig serialPortConfig, ushort tcpPort)
     {
         LogAction = logAction;
