@@ -74,7 +74,11 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="SerialToEthernetController.cs" />
+    <Compile Include="Model\SerialPortConfig.cs" />
+    <Compile Include="Controller\SerialToEthernetController.cs" />
+    <Compile Include="Controller\TcpClientAid.cs" />
+    <Compile Include="UIExtensions\BeginInvokeIfNecessary.cs" />
+    <Compile Include="UIExtensions\InvokeIfNecessary.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

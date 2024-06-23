@@ -12,7 +12,7 @@ using System.Security.Principal;
 [assembly: AssemblyTitle("SerialToEthernet"), AssemblyProduct("SerialToEthernet")]
 [assembly: AssemblyDescription(""), AssemblyCopyright("Copyright ©  2022"), AssemblyConfiguration("")]
 [assembly: AssemblyCompany(""), AssemblyTrademark(""), AssemblyCulture(""), ComVisible(false)]
-[assembly: AssemblyVersion(SerialToEthernetController.Version), AssemblyFileVersion(SerialToEthernetController.Version)]
+[assembly: AssemblyVersion(SerialToEthernet.SerialToEthernetController.Version), AssemblyFileVersion(SerialToEthernet.SerialToEthernetController.Version)]
 
 namespace SerialToEthernet
 {
